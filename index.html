@@ -19,42 +19,18 @@
 
     body {
       margin: 0;
-      min-height: 0;
       height: auto;
       display: flex;
       align-items: flex-start;
       justify-content: center;
-      background:
-        radial-gradient(circle at 72% 45%, rgba(0, 132, 255, .24), transparent 30%),
-        radial-gradient(circle at 34% 50%, rgba(255,255,255,.07), transparent 22%),
-        radial-gradient(circle at center, #111827 0%, #050912 48%, #000 100%);
-      color: white;
+      background: transparent; /* FOND SUPPRIMÉ POUR ODOO */
       font-family: Arial, Helvetica, sans-serif;
       overflow: hidden;
     }
 
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background:
-        repeating-linear-gradient(90deg, rgba(255,255,255,.016) 0 1px, transparent 1px 72px),
-        repeating-linear-gradient(0deg, rgba(255,255,255,.012) 0 1px, transparent 1px 72px),
-        radial-gradient(circle at center, transparent 0 48%, rgba(0,0,0,.72) 100%);
-    }
+    body::before { display:none; }
 
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        radial-gradient(circle, rgba(255,255,255,.55) 0 1px, transparent 1.5px),
-        radial-gradient(circle, rgba(20,149,255,.55) 0 1px, transparent 1.5px);
-      background-size: 96px 96px, 143px 143px;
-      opacity: .08;
-    }
+    body::after { display:none; }
 
     .stage {
       width: 100%;
@@ -68,7 +44,7 @@
       perspective: 1500px;
       position: relative;
       padding: 34px 24px 86px;
-      overflow: hidden;
+      overflow: visible; /* IMPORTANT POUR GARDER LES HALOS */
       animation: stageIntro 1s ease both;
     }
 
@@ -346,21 +322,13 @@
 
     /* ÉCRAN CASSÉ */
     .broken .screen {
-      background:
-        radial-gradient(circle at 52% 55%, rgba(255,255,255,.1), transparent 15%),
-        radial-gradient(circle at 20% 18%, rgba(255,255,255,.08), transparent 20%),
-        linear-gradient(145deg, #0b111c, #02040a 64%, #000);
+      background: transparent; /* écran cassé sans fond */
     }
 
     .broken-bg {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 36% 46%, rgba(255,255,255,.12), transparent 9%),
-        radial-gradient(circle at 60% 72%, rgba(20,149,255,.13), transparent 18%),
-        linear-gradient(145deg, rgba(255,255,255,.05), transparent 40%),
-        linear-gradient(#060912, #000);
-      opacity: .96;
+      background: transparent;
     }
 
     .broken-bg::before {
@@ -508,12 +476,7 @@
     .premium-wallpaper {
       position: absolute;
       inset: 0;
-      background:
-        radial-gradient(circle at 52% 64%, rgba(20,149,255,.48), transparent 20%),
-        radial-gradient(circle at 86% 48%, rgba(66,220,255,.18), transparent 17%),
-        linear-gradient(180deg, rgba(255,255,255,.07), transparent 36%),
-        linear-gradient(145deg, #08111f, #02050b 52%, #000);
-      overflow: hidden;
+      background: transparent; /* fond retiré mais effets conservés ailleurs */
     }
 
     .premium-wallpaper::before {
